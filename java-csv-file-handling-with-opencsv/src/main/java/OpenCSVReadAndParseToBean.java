@@ -23,14 +23,14 @@ public class OpenCSVReadAndParseToBean {
                     .withIgnoreLeadingWhiteSpace(true)
                     .build();
 
-            List<CSVUser> CSVUsers = csvToBean.parse();
+            List<CSVUser> csvUsers = csvToBean.parse();
 
-            for (CSVUser CSVUser : CSVUsers) {
-                System.out.println("Name : " + CSVUser.getName());
-                System.out.println("Email : " + CSVUser.getEmail());
-                System.out.println("PhoneNo : " + CSVUser.getPhoneNo());
-                System.out.println("Country : " + CSVUser.getCountry());
-                System.out.println("---------------------------");
+            for (CSVUser csvUser : csvUsers) {
+                System.out.println("Name : " + csvUser.getName());
+                System.out.println("Email : " + csvUser.getEmail());
+                System.out.println("PhoneNo : " + csvUser.getPhoneNo());
+                System.out.println("Country : " + csvUser.getCountry());
+                System.out.println("==========================");
             }
         }
     }
