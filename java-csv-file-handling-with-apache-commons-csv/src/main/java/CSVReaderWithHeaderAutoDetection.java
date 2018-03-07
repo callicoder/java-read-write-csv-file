@@ -27,10 +27,10 @@ public class CSVReaderWithHeaderAutoDetection {
             for (CSVRecord csvRecord : csvRecords) {
                 // Accessing values by Header names
 
-                String name = csvRecord.get("name");
-                String email = csvRecord.get("email");
-                String phone = csvRecord.get("phone");
-                String country = csvRecord.get("country");
+                String name = csvRecord.get("Name");
+                String email = csvRecord.get("Email");
+                String phone = csvRecord.get("Phone");
+                String country = csvRecord.get("Country");
 
                 System.out.println("Record No - " + csvRecord.getRecordNumber());
                 System.out.println("---------------");

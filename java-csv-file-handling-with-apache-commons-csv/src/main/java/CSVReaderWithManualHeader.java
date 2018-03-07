@@ -18,7 +18,7 @@ public class CSVReaderWithManualHeader {
         try (
             Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));
             CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT
-                    .withHeader("name", "email", "phone", "country")
+                    .withHeader("Name", "Email", "Phone", "Country")
                     .withIgnoreHeaderCase()
                     .withTrim());
         ) {
