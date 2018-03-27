@@ -23,7 +23,7 @@ public class CSVReaderWithManualHeader {
                     .withTrim());
         ) {
 
-            for (CSVRecord csvRecord : csvParser.getRecords()) {
+            for (CSVRecord csvRecord : csvParser) {
                 // Accessing values by the names assigned to each column
 
                 String name = csvRecord.get("Name");

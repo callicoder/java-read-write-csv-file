@@ -52,7 +52,7 @@ public class OpenCSVWriter {
         try (
             Writer writer = Files.newBufferedWriter(Paths.get(STRING_ARRAY_SAMPLE));
         ) {
-            StatefulBeanToCsv beanToCsv = new StatefulBeanToCsvBuilder(writer)
+            StatefulBeanToCsv<MyUser> beanToCsv = new StatefulBeanToCsvBuilder(writer)
                     .withQuotechar(CSVWriter.NO_QUOTE_CHARACTER)
                     .build();
 

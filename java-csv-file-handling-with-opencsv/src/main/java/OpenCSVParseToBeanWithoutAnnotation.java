@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -24,21 +25,35 @@ public class OpenCSVParseToBeanWithoutAnnotation {
             String[] memberFieldsToBindTo = {"name", "email", "phoneNo", "country"};
             strategy.setColumnMapping(memberFieldsToBindTo);
 
-            CsvToBean csvToBean = new CsvToBeanBuilder(reader)
+            CsvToBean<MyUser> csvToBean = new CsvToBeanBuilder(reader)
                     .withMappingStrategy(strategy)
                     .withSkipLines(1)
                     .withIgnoreLeadingWhiteSpace(true)
                     .build();
 
-            List<MyUser> myUsers = csvToBean.parse();
+            Iterator<MyUser> myUserIterator = csvToBean.iterator();
 
-            for (MyUser myUser : myUsers) {
+            while (myUserIterator.hasNext()) {
+                MyUser myUser = myUserIterator.next();
                 System.out.println("Name : " + myUser.getName());
                 System.out.println("Email : " + myUser.getEmail());
                 System.out.println("PhoneNo : " + myUser.getPhoneNo());
                 System.out.println("Country : " + myUser.getCountry());
                 System.out.println("---------------------------");
             }
+        }
+    }
+
+    // Reads all CSV contents into memory (Not suitable for large CSV files)
+    private static void readAllBeansAtOnce(CsvToBean csvToBean) {
+        List<MyUser> myUsers = csvToBean.parse();
+
+        for (MyUser myUser : myUsers) {
+            System.out.println("Name : " + myUser.getName());
+            System.out.println("Email : " + myUser.getEmail());
+            System.out.println("PhoneNo : " + myUser.getPhoneNo());
+            System.out.println("Country : " + myUser.getCountry());
+            System.out.println("---------------------------");
         }
     }
 }

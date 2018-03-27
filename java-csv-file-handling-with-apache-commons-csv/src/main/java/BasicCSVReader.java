@@ -18,9 +18,7 @@ public class BasicCSVReader {
             Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));
             CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT);
         ) {
-            Iterable<CSVRecord> csvRecords = csvParser.getRecords();
-
-            for (CSVRecord csvRecord : csvRecords) {
+            for (CSVRecord csvRecord : csvParser) {
                 // Accessing Values by Column Index
 
                 String name = csvRecord.get(0);

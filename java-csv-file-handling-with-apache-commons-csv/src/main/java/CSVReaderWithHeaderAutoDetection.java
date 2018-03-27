@@ -22,9 +22,7 @@ public class CSVReaderWithHeaderAutoDetection {
                     .withIgnoreHeaderCase()
                     .withTrim());
         ) {
-            Iterable<CSVRecord> csvRecords = csvParser.getRecords();
-
-            for (CSVRecord csvRecord : csvRecords) {
+            for (CSVRecord csvRecord : csvParser) {
                 // Accessing values by Header names
 
                 String name = csvRecord.get("Name");
